@@ -1,7 +1,6 @@
 const mealsURL = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood';
 const mealsContainer = document.querySelector('.meals-container');
 
-
 const getData = async () => {
   const response = await fetch(mealsURL);
   const data = await response.json();
@@ -15,7 +14,7 @@ const displayMeals = async () => {
   mealsOb.meals.forEach((meal) => {
     const mealDiv = document.createElement('div');
     mealDiv.classList.add('meal-div');
-    mealDiv.innerHTML =  `<div class="img-div" id=${meal.idMeal}>
+    mealDiv.innerHTML = `<div class="img-div" id=${meal.idMeal}>
     <img src=${meal.strMealThumb} alt=${meal.strMeal} class="meal-img">
   </div>
   <a href="#" class="meal-title" data-id=${meal.idMeal}>${meal.strMeal}</a>
@@ -31,9 +30,4 @@ const displayMeals = async () => {
   });
 };
 
-export {displayMeals, mealsURL}
-
-
-
-
-
+export { displayMeals, mealsURL };
