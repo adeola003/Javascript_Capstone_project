@@ -156,17 +156,11 @@ To check for js errors run:
 - Twitter: [@twitterhandle](https://twitter.com/khadaf6)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/abdel-khafid-salaou-a18396161)
 
-👤 **Abdel-Khafid SALAOU**
+👤 **Ndonyi Maurice Djam**
 
-- GitHub: [@githubhandle](https://github.com/adeola003)
-- Twitter: [@twitterhandle](https://twitter.com/khadaf6)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/abdel-khafid-salaou-a18396161)
-
-👤 **Abdel-Khafid SALAOU**
-
-- GitHub: [@githubhandle](https://github.com/adeola003)
-- Twitter: [@twitterhandle](https://twitter.com/khadaf6)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/abdel-khafid-salaou-a18396161)
+- GitHub: [NdonyiMaurice](https://github.com/citec-47)
+- Twitter: [@NdonyiMaurice](https://twitter.com/Ndonyi4)
+- LinkedIn: [NdonyiMaurice](https://www.linkedin.com/in/ndonyi-maurice-b5b49b22b/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
