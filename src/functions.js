@@ -20,7 +20,9 @@ const displayMeals = async () => {
   </div>
   <a href="#" class="meal-title" data-id=${meal.idMeal}>${meal.strMeal}</a>
   <div class="meals-details">
-    <i class="fa fa-heart like-count like-btn" id ="lik"aria-hidden="true"></i> <p> likes</p>
+  <i class="far fa-heart like-btn"></i>
+  <i class="fas fa-heart like-btn filled"></i>
+  <p class="like-count">Likes</p>
   </div>
   <button class="comment-button" id="${meal.idMeal}" data-target="#popup-wrapper">Comments</button>`;
 
