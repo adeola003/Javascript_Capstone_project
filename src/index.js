@@ -1,4 +1,7 @@
 import './style.css';
-import {
+import {displayMeals
 
 } from './functions.js';
+
+
+window.addEventListener('load', displayMeals);

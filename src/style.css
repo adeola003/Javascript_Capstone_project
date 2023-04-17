@@ -1,4 +1,23 @@
-body {
-  background-color: aquamarine;
-  color: red;
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
+.nav-links {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links a {
+  margin: 0 10px;
+  color: #333333;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
