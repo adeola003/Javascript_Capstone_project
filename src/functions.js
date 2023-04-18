@@ -23,7 +23,7 @@ const displayMeals = async () => {
   <i class="fas fa-heart like-btn filled"></i>
   <p class="like-count">Likes</p>
   </div>
-  <button class="comment-button" id="${meal.idMeal}" data-target="#popup-wrapper">Comments</button>`;
+  <button class="comment-btn" id="${meal.idMeal}" data-target="#popup-wrapper">Comments</button>`;
 
     // Append the list item element to the unordered list element
     mealsContainer.appendChild(mealDiv);
