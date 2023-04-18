@@ -1,4 +1,6 @@
 import './style.css';
-import {
+import '@fortawesome/fontawesome-free/css/all.css';
 
-} from './functions.js';
+import { displayMeals } from './functions.js';
+
+window.addEventListener('load', displayMeals);
