@@ -65,6 +65,14 @@ img {
   transform: scale(1.1);
 }
 
+.like-btn {
+  transition: transform 0.2s ease-out;
+}
+
+.like-btn:hover {
+  transform: scale(1.5);
+}
+
 footer {
   border: 2px solid black;
   text-align: center;
