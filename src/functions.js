@@ -25,7 +25,6 @@ const displayMeals = async () => {
   </div>
   <button class="comment-btn" id="${meal.idMeal}" data-target="#popup-wrapper">Comments</button>`;
 
-  
 
     // Append the list item element to the unordered list element
     mealsContainer.appendChild(mealDiv);
