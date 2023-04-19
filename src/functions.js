@@ -1,4 +1,4 @@
-import { updateLikes } from "./likes.js";
+import { updateLikes } from './likes.js';
 
 const mealsURL = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood';
 const mealsContainer = document.querySelector('.meals-container');
@@ -12,7 +12,6 @@ const getData = async () => {
 const displayMeals = async () => {
   mealsContainer.innerHTML = '';
   const mealsOb = await getData();
-  console.log(mealsOb);
   mealsOb.meals.forEach((meal) => {
     const mealDiv = document.createElement('div');
     mealDiv.classList.add('meal-div');
@@ -29,13 +28,9 @@ const displayMeals = async () => {
   </div>
   <button class="comment-btn" id="${meal.idMeal}" data-target="#popup-wrapper">Comments</button>`;
 
-
     // Append the list item element to the unordered list element
     mealsContainer.appendChild(mealDiv);
-    
   });
 };
 
-export { displayMeals, mealsURL, getData};
-
-
+export { displayMeals, mealsURL, getData };
