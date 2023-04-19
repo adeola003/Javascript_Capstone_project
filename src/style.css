@@ -53,6 +53,26 @@ img {
   font-size: 20px;
 }
 
+.comment-btn {
+  background-color: azure;
+  height: 30px;
+  transition: transform 0.2s ease-out;
+}
+
+.comment-btn:hover {
+  background-color: rgb(6, 109, 109);
+  color: #ffff;
+  transform: scale(1.1);
+}
+
+.like-btn {
+  transition: transform 0.2s ease-out;
+}
+
+.like-btn:hover {
+  transform: scale(1.5);
+}
+
 footer {
   border: 2px solid black;
   text-align: center;

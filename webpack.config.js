@@ -6,8 +6,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       hash: true,
-      title: 'To do list webpack',
-      header: 'To do list',
+      title: 'Capstone Project',
+      header: 'Meals homepage',
       metaDesc: 'Webpack Example Description',
       template: './src/index.html',
       filename: 'index.html',
