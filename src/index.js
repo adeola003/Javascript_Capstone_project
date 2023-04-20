@@ -3,6 +3,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 
 import { displayMeals } from './functions.js';
 import { microverseKey, microUrl } from './likes.js';
+import {createComment, getComment} from './comment.js';
 
 window.addEventListener('load', async () => {
   await displayMeals();
@@ -44,3 +45,26 @@ window.addEventListener('load', async () => {
     });
   });
 });
+
+
+//event listener to submit and display comments
+
+// document.getElementById('comment-form').addEventListener('submit', async (event) => {
+//   event.preventDefault();
+//   const commentInput = document.getElementById('comment-input');
+//   const usernameInput = document.getElementById('username-input');
+//   const itemId = event.target.id; // get the id of the button that triggered the form submission
+//   createComment(itemId, usernameInput, commentInput);
+//   commentInput.value = '';
+//   usernameInput.value = '';
+//   const commentsResponse = await getComment(itemId)
+//   const commentsData = await commentsResponse.json();
+//   const commentsListElement = document.getElementById('comments-list');
+//   commentsListElement.innerHTML = '';
+//   commentsData.forEach(comment => {
+//     const commentItem = document.createElement('li');
+//     commentItem.textContent = `${comment.username}: ${comment.comment}`;
+//     commentsListElement.appendChild(commentItem);
+//   });
+// });
+
