@@ -1,4 +1,5 @@
 import { updateLikes } from './likes.js';
+import { createComment, getComment } from './comment.js';
 const mealsURL = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood';
 const mealsContainer = document.querySelector('.meals-container');
 
@@ -45,15 +46,17 @@ const displayMeals = async () => {
       event.preventDefault();
       const mealId = event.target.id;
       console.log(mealId);
-      
+      //get meal instructions
       const instructions = await getMealInstr(mealId);
       console.log(typeof(instructions));
+      
 
       const popupContainer = document.createElement('div');
+      popupContainer.classList.add('popup-container')
       popupContainer.id = 'popup-container';
-
+         
       const popupContent = `
-        <span class="close">&;</span>
+        <button class="close">X</button>
         <h2>Meal Instructions</h2>
         <p id="meal-instructions">${instructions}</p>
         <h2>Comments</h2>
@@ -64,13 +67,48 @@ const displayMeals = async () => {
           <input type="text" id="username" name="username">
           <label for="comment">Comment:</label>
           <textarea id="comment" name="comment"></textarea>
-          <button type="submit">Submit</button>
+          <button id="submit-btn" type="submit">Submit</button>
         </form>`;
 
       popupContainer.innerHTML = popupContent;
-      const pop = document.getElementById('pop')
+      document.body.appendChild(popupContainer);
+      //send comment to api
+      
+const commentForm = popupContainer.querySelector('#comment-form');
+// Function to update the comments list
+const updateCommentsList = async () => {
+  const itemId = mealId;
+  const comments = await getComment(itemId);
+  console.log(comments);
+  commentsList.innerHTML = '';
+  comments.forEach((comment) => {
+    const li = document.createElement('li');
+    li.innerText = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
+    commentsList.appendChild(li);
+  });
+};
 
-      pop.appendChild(popupContainer);
+// Add an event listener to the form's submit button
+commentForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const usernameInput = popupContainer.querySelector('#username');
+  const commentInput = popupContainer.querySelector('#comment');
+  const itemId = mealId;
+  const userName = usernameInput.value;
+  const comment = commentInput.value;
+  const result = await createComment(itemId, userName, comment);
+  console.log(result); 
+  usernameInput.value = '';
+  commentInput.value = '';
+  await updateCommentsList();
+});
+//get comment from api
+// Get the ul element
+const commentsList = popupContainer.querySelector('#comments-list');
+
+// Call the function to update the comments list when the popup is opened
+updateCommentsList();
+    
 
       const closeButton = popupContainer.querySelector('.close');
       closeButton.addEventListener('click', () => {
