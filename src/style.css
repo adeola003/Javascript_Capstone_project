@@ -83,7 +83,7 @@ footer {
 
 /* Popup styling */
 .popup-container {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -91,8 +91,8 @@ footer {
   background-color: white;
   border: 1px solid black;
   padding: 20px;
-  max-height: 80vh; /* Add this to limit the height of the popup */
-  overflow-y: auto; /* Add this to enable scrolling within the popup */
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 
