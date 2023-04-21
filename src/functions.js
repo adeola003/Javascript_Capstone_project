@@ -107,26 +107,6 @@ submitBtn.addEventListener('click', async (event) => {
 });
 updateCommentsList(mealId);
 
-
-
-// // Add an event listener to the form's submit button
-// commentForm.addEventListener('submit', async (event) => {
-//   event.preventDefault();
-//   const usernameInput = popupContainer.querySelector('#username');
-//   const commentInput = popupContainer.querySelector('#comment');
-//   const itemId = mealId;
-//   const userName = usernameInput.value;
-//   const comment = commentInput.value;
-//   const result = await createComment(itemId, userName, comment);
-//   console.log(result); 
-//   usernameInput.value = '';
-//   commentInput.value = '';
-//   await updateCommentsList();
-// });
-
-
-
-
 // Call the function to update the comments list when the popup is opened
 updateCommentsList();
     
