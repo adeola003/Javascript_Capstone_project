@@ -54,11 +54,6 @@ window.addEventListener('load', async () => {
 //   const usernameInput = document.getElementById('username-input');
 //   const itemId = event.target.id; // get the id of the button that triggered the form submission
 //   createComment(itemId, usernameInput, commentInput);
-//   commentInput.value = '';
-//   usernameInput.value = '';
-//   const commentsResponse = await getComment(itemId)
-//   const commentsData = await commentsResponse.json();
-//   const commentsListElement = document.getElementById('comments-list');
 //   commentsListElement.innerHTML = '';
 // });
 
