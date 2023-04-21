@@ -46,14 +46,4 @@ window.addEventListener('load', async () => {
 });
 
 
-//event listener to submit and display comments
-
-// document.getElementById('comment-form').addEventListener('submit', async (event) => {
-//   event.preventDefault();
-//   const commentInput = document.getElementById('comment-input');
-//   const usernameInput = document.getElementById('username-input');
-//   const itemId = event.target.id; // get the id of the button that triggered the form submission
-//   createComment(itemId, usernameInput, commentInput);
-//   commentsListElement.innerHTML = '';
-// });
 
