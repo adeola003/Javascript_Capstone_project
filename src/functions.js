@@ -108,7 +108,6 @@ updateCommentsList(mealId);
 
 // Call the function to update the comments list when the popup is opened
 updateCommentsList();
-    
 
       const closeButton = popupContainer.querySelector('.close');
       closeButton.addEventListener('click', () => {
