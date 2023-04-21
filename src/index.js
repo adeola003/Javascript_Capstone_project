@@ -3,7 +3,6 @@ import '@fortawesome/fontawesome-free/css/all.css';
 
 import { displayMeals } from './functions.js';
 import { microverseKey, microUrl } from './likes.js';
-import {createComment, getComment} from './comment.js';
 
 window.addEventListener('load', async () => {
   await displayMeals();
