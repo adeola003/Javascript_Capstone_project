@@ -1,70 +1,50 @@
-import './style.css';
-import '@fortawesome/fontawesome-free/css/all.css';
+/* eslint-disable import/extensions */
+/* eslint-disable quotes */
+import "./style.css";
+import viewMeals from "./modules/showMeals";
+import { addinLikes } from "./modules/fetchingLikes";
+import showinlikes from "./modules/showUsLike";
+import mealsCounter from "./modules/mealCount";
+import commentMulitply from "./modules/multiplyComment.js";
 
-import { displayMeals } from './functions.js';
-import { microverseKey, microUrl } from './likes.js';
-import {createComment, getComment} from './comment.js';
+// Constants
+const urls = "https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/N317ounBUtSwOefLVAgO/comments";
+const mealsListContainer = document.querySelector(".f-list");
 
-window.addEventListener('load', async () => {
-  await displayMeals();
-  // implement likes function
-  const likeButton = document.querySelectorAll('.like-btn');
-  likeButton.forEach((button) => {
-    button.addEventListener('click', async (e) => {
-      const mealId = button.parentElement.parentElement.querySelector('.img-div').id;
-      const url = `${microUrl}${microverseKey}/likes`;
-
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ item_id: mealId }),
-      });
-
-      if (response.status === 201) {
-        const mealId = e.target.closest('.meals-details').previousElementSibling.dataset.id;
-
-        // Fetch the current likes for the meal from the API
-        const likesResponse = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${microverseKey}/likes`);
-        const likesData = await likesResponse.json();
-
-        // Find the likes for the current meal ID
-        const mealLikes = likesData.find((like) => like.item_id === mealId);
-
-        // Update the like-count element
-        const likeCountElem = e.target.closest('.meals-details').querySelector('.like-count');
-        if (mealLikes) {
-          likeCountElem.textContent = `${mealLikes.likes} Likes`;
-        } else {
-          likeCountElem.textContent = '0 Likes';
-        }
-      } else {
-        const error = await response.json();
-        // eslint-disable-next-line
-        console.log(error);
-      }
-    });
+// Populate the meals cards items
+document.addEventListener("DOMContentLoaded", async () => {
+  await viewMeals(mealsListContainer);
+  // Selecet meals items
+  const meals = document.getElementsByClassName("meal-card");
+  const counterContentText = document.querySelector(".meals-counts");
+  counterContentText.textContent = mealsCounter([...meals]);
+  // Select all likes element
+  const textLikes = document.getElementsByClassName("card-likes-txt");
+  [...textLikes].forEach(async (textLike) => {
+    await showinlikes(textLike);
   });
 });
 
+// Post Likes
+window.addEventListener("click", async (e) => {
+  // Select the like button
+  const likeBtn = e.target;
+  if (likeBtn.classList.contains("card-likes")) {
+    // Update numbers of likes on the API
+    const mealId = likeBtn.getAttribute("data-id");
+    await addinLikes(mealId);
+    // Update numbers of likes on the screen
+    const txtlike = likeBtn.parentElement.previousElementSibling.lastChild.previousSibling;
+    await showinlikes(txtlike);
+  }
+});
 
-//event listener to submit and display comments
+const handleCommentClick = async (meals) => {
+  const [id, name, category, image, origin] = meals;
+  await commentMulitply(id, name, category, image, origin, urls);
+  const thepopup = document.getElementById("popup");
+  document.body.classList.add("body-y-scroll");
+  thepopup.classList.add("popup2");
+};
 
-// document.getElementById('comment-form').addEventListener('submit', async (event) => {
-//   event.preventDefault();
-//   const commentInput = document.getElementById('comment-input');
-//   const usernameInput = document.getElementById('username-input');
-//   const itemId = event.target.id; // get the id of the button that triggered the form submission
-//   createComment(itemId, usernameInput, commentInput);
-//   commentInput.value = '';
-//   usernameInput.value = '';
-//   const commentsResponse = await getComment(itemId)
-//   const commentsData = await commentsResponse.json();
-//   const commentsListElement = document.getElementById('comments-list');
-//   commentsListElement.innerHTML = '';
-//   commentsData.forEach(comment => {
-//     const commentItem = document.createElement('li');
-//     commentItem.textContent = `${comment.username}: ${comment.comment}`;
-//     commentsListElement.appendChild(commentItem);
-//   });
-// });
-
+window.handleCommentClick = handleCommentClick;
