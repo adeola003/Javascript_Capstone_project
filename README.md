@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  <h3><b>Leaderboard</b></h3>
+  <h3><b>MEALS</b></h3>
 
 </div>
 

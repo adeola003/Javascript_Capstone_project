@@ -80,3 +80,19 @@ footer {
   font-weight: bold;
   background-color: rgb(97, 219, 219);
 }
+
+/* Popup styling */
+.popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  background-color: white;
+  border: 1px solid black;
+  padding: 20px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+
