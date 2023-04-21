@@ -80,10 +80,10 @@ const displayMeals = async () => {
 const commentForm = popupContainer.querySelector('#comment-form');
 const commentsList = popupContainer.querySelector('#comments-list');
 // Function to update the comments list
-const updateCommentsList = async (id) => {
+  const updateCommentsList = async (id) => {
   const comments = await getComment(id);
   const commentCount = document.querySelector('#comment-counter');
-      commentCount.innerHTML = `${comments.length}`;
+  commentCount.innerHTML = `${comments.length}`;
   console.log(comments);
   commentsList.innerHTML = '';
   comments.forEach((comment) => {
