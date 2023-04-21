@@ -60,10 +60,5 @@ window.addEventListener('load', async () => {
 //   const commentsData = await commentsResponse.json();
 //   const commentsListElement = document.getElementById('comments-list');
 //   commentsListElement.innerHTML = '';
-//   commentsData.forEach(comment => {
-//     const commentItem = document.createElement('li');
-//     commentItem.textContent = `${comment.username}: ${comment.comment}`;
-//     commentsListElement.appendChild(commentItem);
-//   });
 // });
 
