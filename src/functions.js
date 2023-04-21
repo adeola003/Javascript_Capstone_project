@@ -103,7 +103,6 @@ submitBtn.addEventListener('click', async (event) => {
   await createComment(itemId, name, comment);
   
   commentForm.reset();
-  console.log("form reset!")
 });
 updateCommentsList(mealId);
 
