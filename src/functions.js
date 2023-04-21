@@ -62,7 +62,7 @@ const displayMeals = async () => {
         <h2>Comments</h2>
         <ul id="comments-list"></ul>
         <h2>Add Comment</h2>
-        <form id="comment-form">
+        <form id="comment-form" action="submit">
           <label for="username">Username:</label>
           <input type="text" id="username" name="username">
           <label for="comment">Comment:</label>
@@ -75,10 +75,10 @@ const displayMeals = async () => {
       //send comment to api
       
 const commentForm = popupContainer.querySelector('#comment-form');
+const commentsList = popupContainer.querySelector('#comments-list');
 // Function to update the comments list
-const updateCommentsList = async () => {
-  const itemId = mealId;
-  const comments = await getComment(itemId);
+const updateCommentsList = async (id) => {
+  const comments = await getComment(id);
   console.log(comments);
   commentsList.innerHTML = '';
   comments.forEach((comment) => {
@@ -87,24 +87,45 @@ const updateCommentsList = async () => {
     commentsList.appendChild(li);
   });
 };
-
-// Add an event listener to the form's submit button
-commentForm.addEventListener('submit', async (event) => {
+updateCommentsList(mealId)
+//using the form btn
+const submitBtn = document.querySelector('#submit-btn');
+submitBtn.addEventListener('click', async (event) => {
   event.preventDefault();
-  const usernameInput = popupContainer.querySelector('#username');
-  const commentInput = popupContainer.querySelector('#comment');
+  
+  let name = document.querySelector('#username').value;
+  let comment = document.querySelector('#comment').value;
   const itemId = mealId;
-  const userName = usernameInput.value;
-  const comment = commentInput.value;
-  const result = await createComment(itemId, userName, comment);
-  console.log(result); 
-  usernameInput.value = '';
-  commentInput.value = '';
-  await updateCommentsList();
+  const date = new Date().toISOString().substr(0, 10);
+  const li = document.createElement('li');
+    li.innerText = `${date} ${name}: ${comment}`;
+    commentsList.appendChild(li);
+  await createComment(itemId, name, comment);
+  
+  commentForm.reset();
+  console.log("form reset!")
 });
-//get comment from api
-// Get the ul element
-const commentsList = popupContainer.querySelector('#comments-list');
+updateCommentsList(mealId);
+
+
+
+// // Add an event listener to the form's submit button
+// commentForm.addEventListener('submit', async (event) => {
+//   event.preventDefault();
+//   const usernameInput = popupContainer.querySelector('#username');
+//   const commentInput = popupContainer.querySelector('#comment');
+//   const itemId = mealId;
+//   const userName = usernameInput.value;
+//   const comment = commentInput.value;
+//   const result = await createComment(itemId, userName, comment);
+//   console.log(result); 
+//   usernameInput.value = '';
+//   commentInput.value = '';
+//   await updateCommentsList();
+// });
+
+
+
 
 // Call the function to update the comments list when the popup is opened
 updateCommentsList();
