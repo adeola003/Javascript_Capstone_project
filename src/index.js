@@ -3,8 +3,12 @@ import '@fortawesome/fontawesome-free/css/all.css';
 
 import { displayMeals } from './functions.js';
 import { microverseKey, microUrl } from './likes.js';
+import { countItems } from './counts.js';
 
 window.addEventListener('load', async () => {
+  const countContainer = document.getElementById('item-counter');
+  const itemsLen = countItems();
+  countContainer.textContent = itemsLen
   await displayMeals();
   // implement likes function
   const likeButton = document.querySelectorAll('.like-btn');

@@ -1,5 +1,6 @@
 import { updateLikes } from './likes.js';
 import { createComment, getComment } from './comment.js';
+import { countComments } from './counts.js';
 const mealsURL = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood';
 const mealsContainer = document.querySelector('.meals-container');
 
@@ -49,17 +50,19 @@ const displayMeals = async () => {
       //get meal instructions
       const instructions = await getMealInstr(mealId);
       console.log(typeof(instructions));
+      // const comLen = await countComments();
       
 
       const popupContainer = document.createElement('div');
-      popupContainer.classList.add('popup-container')
+      popupContainer.classList.add('popup-container');
+      
       popupContainer.id = 'popup-container';
          
       const popupContent = `
         <button class="close">X</button>
         <h2>Meal Instructions</h2>
         <p id="meal-instructions">${instructions}</p>
-        <h2>Comments</h2>
+        <h2>Comments (<span id="comment-counter"></span>)</h2>
         <ul id="comments-list"></ul>
         <h2>Add Comment</h2>
         <form id="comment-form" action="submit">
@@ -79,6 +82,8 @@ const commentsList = popupContainer.querySelector('#comments-list');
 // Function to update the comments list
 const updateCommentsList = async (id) => {
   const comments = await getComment(id);
+  const commentCount = document.querySelector('#comment-counter');
+      commentCount.innerHTML = `${comments.length}`;
   console.log(comments);
   commentsList.innerHTML = '';
   comments.forEach((comment) => {
@@ -100,6 +105,9 @@ submitBtn.addEventListener('click', async (event) => {
   const li = document.createElement('li');
     li.innerText = `${date} ${name}: ${comment}`;
     commentsList.appendChild(li);
+    const commentCounting = document.querySelector('#comment-counter');
+    const commentsCount = commentsList.childElementCount;
+      commentCounting.innerHTML = `${commentsCount}`;
   await createComment(itemId, name, comment);
   
   commentForm.reset();
