@@ -109,8 +109,10 @@ submitBtn.addEventListener('click', async (event) => {
     const newCont = countComments (comment-counter);
       commentCounting.innerHTML = `${newCont}`;
   await createComment(itemId, name, comment);
-  
+ 
   commentForm.reset();
+
+  
 });
 updateCommentsList(mealId);
 
