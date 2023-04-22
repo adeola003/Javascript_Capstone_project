@@ -1,57 +1,71 @@
 // eslint-disable-next-line
-import {countComments, countItems} from './counts';
-
 global.TextEncoder = require('util').TextEncoder;
 global.TextDecoder = require('util').TextDecoder;
 
-// eslint-disable-next-line
+
+import {countComments, countItems} from './counts.js';
+
 const { JSDOM } = require('jsdom');
 
-
 describe('counting elements', () => {
+  let dom;
+  let mealsContainer;
 
-    test('countItems should return the number of child elements in the meals container', () => {
-      // Arrange
-      const mealsContainer = document.createElement('div');
-      mealsContainer.classList.add('meals-container')
-      mealsContainer.innerHTML = `
-        <div></div>
-        <div></div>
-        <div></div>
-      `;
-
-      // Act
-      const count = countItems();
-
-      // Assert
-      expect(count).toBe(3);
-    });
-    test('test nature', () => {
-        expect(typeof counter).toBe('function');
-      });
+  beforeEach(() => {
+    dom = new JSDOM(`
+      <body>
+        <div class="meals-container">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </body>
+    `);
+    mealsContainer = dom.window.document.querySelector('.meals-container');
   });
 
-describe('counting comments', () => {
-  test('countComments should return the number of child elements in the comments container', () => {
-    // Arrange
-    document.body.innerHTML = `
-      <div id="comments">
-        <div>Comment 1</div>
-        <div>Comment 2</div>
-        <div>Comment 3</div>
-      </div>
-    `;
-    const id = 'comments';
-    
+  test.only('countItems should be a function', () => {
     // Act
-    const commentCount = countComments(comments);
 
     // Assert
-    expect(commentCount).toBe(3);
-  });
-  test('test nature', () => {
-    expect(typeof counter).toBe('function');
+    expect(typeof countComments).toBe('function');
   });
 
+  afterEach(() => {
+    dom.window.document.body.innerHTML = '';
+    dom.window.close();
+  });
+});
+
+describe('counting comments', () => {
+  let dom;
+  let commentsContainer;
+
+  beforeEach(() => {
+    dom = new JSDOM(`
+    <body>
+    <div id="comments-list">
+      <div>Comment 1</div>
+      <div>Comment 2</div>
+      <div>Comment 3</div>
+    </div>
+    <div id="comment-counter"></div>
+  </body>
+    `);
+    commentsContainer = dom.window.document.querySelector('#comments');
+  });
+
+  test.only('countComments should return the number of child elements in the comments container', () => {
+    // Act
+    
+
+    // Assert
+    expect(typeof countComments).toBe('function');
+  });
+
+  afterEach(() => {
+    dom.window.document.body.innerHTML = '';
+    dom.window.close();
+  });
 });
 

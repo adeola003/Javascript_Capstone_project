@@ -5,15 +5,12 @@ const countItems = () => {
     return length
 };
 
-const countComments = (id) => {
-    const commentCounting = document.querySelector(`#${id}`);
-    const commentsCount = commentCounting.childElementCount;
-    return commentsCount
+const countComments = () => {
+    let commentsList = document.getElementById('comments-list')
+    const commentCounting = document.querySelector('#comment-counter');
+    const commentsCount = commentsList.childElementCount;
+      commentCounting.innerHTML = `${commentsCount}`;
 };
 
-const sum = (a, b) => {
-    return a + b
-}
-
-export {countComments, countItems, sum}
+export {countComments, countItems}
 
