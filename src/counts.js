@@ -11,5 +11,9 @@ const countComments = (id) => {
     return commentsCount
 };
 
-export {countComments, countItems}
+const sum = (a, b) => {
+    return a + b
+}
+
+export {countComments, countItems, sum}
 
