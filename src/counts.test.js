@@ -1,15 +1,13 @@
 // eslint-disable-next-line
+import {countComments, countItems} from './counts.js';
+
 global.TextEncoder = require('util').TextEncoder;
 global.TextDecoder = require('util').TextDecoder;
-
-
-import {countComments, countItems} from './counts.js';
 
 const { JSDOM } = require('jsdom');
 
 describe('counting elements', () => {
   let dom;
-  let mealsContainer;
 
   beforeEach(() => {
     dom = new JSDOM(`
@@ -21,7 +19,6 @@ describe('counting elements', () => {
         </div>
       </body>
     `);
-    mealsContainer = dom.window.document.querySelector('.meals-container');
   });
 
   test.only('countItems should be a function', () => {
@@ -39,7 +36,6 @@ describe('counting elements', () => {
 
 describe('counting comments', () => {
   let dom;
-  let commentsContainer;
 
   beforeEach(() => {
     dom = new JSDOM(`
@@ -52,12 +48,10 @@ describe('counting comments', () => {
     <div id="comment-counter"></div>
   </body>
     `);
-    commentsContainer = dom.window.document.querySelector('#comments');
   });
 
   test.only('countComments should return the number of child elements in the comments container', () => {
     // Act
-    
 
     // Assert
     expect(typeof countComments).toBe('function');
@@ -68,4 +62,3 @@ describe('counting comments', () => {
     dom.window.close();
   });
 });
-

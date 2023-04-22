@@ -9,7 +9,7 @@ window.addEventListener('load', async () => {
   await displayMeals();
   const countContainer = document.getElementById('item-counter');
   const itemsLen = countItems();
-  countContainer.innerHTML = `${itemsLen}`
+  countContainer.innerHTML = `${itemsLen}`;
   // implement likes function
   const likeButton = document.querySelectorAll('.like-btn');
   likeButton.forEach((button) => {
