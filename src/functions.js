@@ -56,6 +56,10 @@ const displayMeals = async () => {
 
       const popupContent = `
         <button class="close">X</button>
+        <div class="img-div" id=${meal.idMeal}>
+          <img src=${meal.strMealThumb} alt=${meal.strMeal} class="meal-img">
+        </div>
+        <a href="#" class="meal-title" data-id=${meal.idMeal}>${meal.strMeal}</a>        
         <h2>Meal Instructions</h2>
         <p id="meal-instructions">${instructions}</p>
         <h2>Comments (<span id="comment-counter"></span>)</h2>
