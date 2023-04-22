@@ -32,7 +32,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Leaderboard] <a name="about-project"></a>
+# 📖 [Capstone Meal API] <a name="about-project"></a>
 
 **[Meals API]** This project is basic website that display meals from an API, display their instructions, and allow usee to add comment and likes.
 
