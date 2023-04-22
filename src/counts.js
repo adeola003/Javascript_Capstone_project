@@ -5,11 +5,11 @@ const countItems = () => {
 };
 
 const countComments = () => {
-  const popup = document.querySelector('.popup-container');
-  const commentsContainer = popup.querySelector('#comments-list');
-  const commentsList = commentsContainer.querySelectorAll('li');
-  const { length } = commentsList;
-  return length;
+
+  const commentsList = document.getElementById('comments-list');
+  const commentCounting = document.querySelector('#comment-counter');
+  const commentsCount = commentsList.childElementCount;
+  commentCounting.innerHTML = `${commentsCount}`;
 };
 
 export { countComments, countItems };
