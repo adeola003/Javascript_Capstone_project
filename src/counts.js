@@ -1,7 +1,7 @@
 
 const countItems = () => {
-    const itemsList = document.querySelectorAll('.img-div');
-    const length = itemsList.length;
+    const mealsContainer = document.querySelector('.meals-container');
+    const length = mealsContainer.childElementCount
     return length
 };
 
