@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-import { } from './functions';
+import {countComments, countItems } from './counts';
 
 global.TextEncoder = require('util').TextEncoder;
 global.TextDecoder = require('util').TextDecoder;

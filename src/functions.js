@@ -106,8 +106,8 @@ submitBtn.addEventListener('click', async (event) => {
     li.innerText = `${date} ${name}: ${comment}`;
     commentsList.appendChild(li);
     const commentCounting = document.querySelector('#comment-counter');
-    const commentsCount = commentsList.childElementCount;
-      commentCounting.innerHTML = `${commentsCount}`;
+    const newCont = countComments (comment-counter);
+      commentCounting.innerHTML = `${newCont}`;
   await createComment(itemId, name, comment);
   
   commentForm.reset();
