@@ -1,5 +1,3 @@
-
-
 // eslint-disable-next-line
 import { countComments, countItems } from '../../counts.js';
 

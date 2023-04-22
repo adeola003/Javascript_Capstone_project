@@ -84,7 +84,6 @@ const displayMeals = async () => {
         const comments = await getComment(id);
         const commentCount = document.querySelector('#comment-counter');
         commentCount.innerHTML = `${comments.length}`;
-        console.log(comments);
         commentsList.innerHTML = '';
         comments.forEach((comment) => {
           const li = document.createElement('li');
