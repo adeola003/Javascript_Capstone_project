@@ -1,5 +1,7 @@
+
+
 // eslint-disable-next-line
-import {countComments, countItems} from './counts.js';
+import { countComments, countItems } from '../../counts.js';
 
 global.TextEncoder = require('util').TextEncoder;
 global.TextDecoder = require('util').TextDecoder;
@@ -25,7 +27,7 @@ describe('counting elements', () => {
     // Act
 
     // Assert
-    expect(typeof countComments).toBe('function');
+    expect(typeof countItems).toBe('function');
   });
 
   afterEach(() => {

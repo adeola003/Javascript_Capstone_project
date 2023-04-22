@@ -46,11 +46,8 @@ const displayMeals = async () => {
     commentButton.addEventListener('click', async (event) => {
       event.preventDefault();
       const mealId = event.target.id;
-      console.log(mealId);
       // get meal instructions
       const instructions = await getMealInstr(mealId);
-      console.log(typeof (instructions));
-      // const comLen = await countComments();
 
       const popupContainer = document.createElement('div');
       popupContainer.classList.add('popup-container');
