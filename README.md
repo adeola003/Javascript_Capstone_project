@@ -34,7 +34,7 @@
 
 # 📖 [Leaderboard] <a name="about-project"></a>
 
-**[Leaderboard]** This project is basic website that allows users to add scores from different users, built using HTML, CSS, Javascript and the webpack technology.
+**[Meals API]** This project is basic website that display meals from an API, display their instructions, and allow usee to add comment and likes.
 
 ## 🛠 Built With <a name="HTML, CSS, Javascript, Jest and Webpack"></a>
 
